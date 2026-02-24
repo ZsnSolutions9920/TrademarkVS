@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import logo from "../assets/Logo-blue.png"
 
-const PHONE_NUMBER = '1-800-555-0199';
+const PHONE_NUMBER = '+1 (844) 918-3636';
 const PHONE_TEL = 'tel:+18005550199';
-const EMAIL = 'info@trademarkvs.com';
+const EMAIL = 'contact@trademarkvs.com';
 
 export default function Footer() {
   return (
@@ -72,8 +72,9 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="text-white/70 text-sm">
-                  1200 Corporate Drive, Suite 400<br />
-                  Arlington, VA 22201
+                  5900 Balcones Drive Suite
+No 24457
+Austin, TX US
                 </span>
               </li>
               <li>

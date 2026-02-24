@@ -10,12 +10,12 @@ export default function CTASection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-white/[0.03] rounded-full pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/20 rounded-full px-5 py-2 mb-7">
+        {/* <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/20 rounded-full px-5 py-2 mb-7">
           <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <span className="text-gold text-sm font-semibold">Limited Availability</span>
-        </span>
+        </span> */}
 
         <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-white tracking-tight leading-tight">
           Book Your Free 15-Minute

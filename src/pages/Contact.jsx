@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import WaveDivider from '../components/WaveDivider';
 
-const PHONE_NUMBER = '1-800-555-0199';
+const PHONE_NUMBER = '+1 (844) 918-3636';
 const PHONE_TEL = 'tel:+18005550199';
-const EMAIL = 'info@trademarkvs.com';
+const EMAIL = 'contact@trademarkvs.com';
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   useEffect(() => {
@@ -14,6 +19,7 @@ export default function Contact() {
     );
   }, []);
 
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -22,17 +28,36 @@ export default function Contact() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError('');
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
+
+  
     <main>
       {/* Page header */}
       <section className="relative bg-gradient-to-br from-navy via-indigo to-blue pt-28 pb-24 lg:pt-36 lg:pb-28 overflow-hidden">
@@ -106,8 +131,9 @@ export default function Contact() {
                   <div>
                     <p className="text-base font-bold text-navy">Trademark Vision Studio</p>
                     <p className="text-slate-light text-sm mt-1">
-                      1200 Corporate Drive, Suite 400<br />
-                      Arlington, VA 22201
+                      5900 Balcones Drive Suite
+No 24457
+Austin, TX US
                     </p>
                   </div>
                 </div>
@@ -136,7 +162,7 @@ export default function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="fullName" className="block text-sm font-semibold text-navy mb-1.5">
@@ -217,11 +243,16 @@ export default function Contact() {
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-red-600 text-sm text-center">{error}</p>
+                    )}
+
                     <button
                       type="submit"
-                      className="w-full bg-gold text-navy font-bold text-base whitespace-nowrap px-8 py-4 rounded-md hover:bg-gold-light hover:scale-[1.02] transition-all duration-200 shadow-sm"
+                      disabled={sending}
+                      className="w-full bg-gold text-navy font-bold text-base whitespace-nowrap px-8 py-4 rounded-md hover:bg-gold-light hover:scale-[1.02] transition-all duration-200 shadow-sm disabled:opacity-60 disabled:pointer-events-none"
                     >
-                      Submit Inquiry
+                      {sending ? 'Sending…' : 'Submit Inquiry'}
                     </button>
                   </form>
                 )}

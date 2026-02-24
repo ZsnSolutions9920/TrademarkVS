@@ -5,7 +5,7 @@ const plans = [
   {
     name: 'Basic',
     tagline: 'Essential Filing',
-    price: '49',
+    price: '249',
     period: '+ USPTO filing fees',
     description: 'Perfect for straightforward trademark filings with guided support throughout the process.',
     features: [
@@ -26,7 +26,7 @@ const plans = [
   {
     name: 'Standard',
     tagline: 'Most Popular',
-    price: '149',
+    price: '339',
     period: '+ USPTO filing fees',
     description: 'Full-service filing with dedicated case management for your trademark.',
     features: [
@@ -49,7 +49,7 @@ const plans = [
   {
     name: 'Premium',
     tagline: 'Complete Protection',
-    price: '349',
+    price: '429',
     period: '+ USPTO filing fees',
     description: 'Comprehensive trademark protection with monitoring, unlimited support, and priority handling.',
     features: [

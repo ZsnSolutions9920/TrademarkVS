@@ -146,10 +146,11 @@ export default function Privacy() {
               </p>
               <div className="mt-3 text-slate text-sm leading-relaxed">
                 <p className="font-semibold text-navy">Trademark Vision Studio</p>
-                <p>1200 Corporate Drive, Suite 400</p>
-                <p>Arlington, VA 22201</p>
-                <p>Email: info@trademarkvs.com</p>
-                <p>Phone: 1-800-555-0199</p>
+                <p>15900 Balcones Drive Suite
+No 24457
+Austin, TX US</p>
+                <p>Email: contact@trademarkvs.com</p>
+                <p>Phone: +1 (844) 918-3636</p>
               </div>
             </div>
           </div>

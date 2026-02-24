@@ -1,70 +1,110 @@
 import WaveDivider from './WaveDivider';
+import laptop from "../assets/laptop.png"
 
 const steps = [
   {
-    number: '01',
+    number: 1,
     title: 'Case Review',
-    description: 'We review your previous USPTO filing and evaluate your eligibility for renewal, refiling, or a new application.',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=280&fit=crop&q=80',
-    imageAlt: 'Document review and analysis',
+    description:
+      'We review your previous USPTO filing and evaluate your eligibility for renewal, refiling, or a new application.',
   },
   {
-    number: '02',
+    number: 2,
     title: 'Strategic Filing',
-    description: 'Our team prepares and submits the required documentation to the USPTO on your behalf, ensuring accuracy and compliance.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=280&fit=crop&q=80',
-    imageAlt: 'Strategic planning and preparation',
+    description:
+      'Our team prepares and submits the required documentation to the USPTO on your behalf, ensuring accuracy and compliance.',
   },
   {
-    number: '03',
+    number: 3,
     title: 'Ongoing Monitoring',
-    description: 'We track your filing status and notify you of updates, office actions, or any required responses throughout the process.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=280&fit=crop&q=80',
-    imageAlt: 'Monitoring and tracking progress',
+    description:
+      'We track your filing status and notify you of updates, office actions, or any required responses throughout the process.',
   },
 ];
+
+function LaptopMockup() {
+  return (
+    <div className="relative">
+      {/* Soft glow behind laptop */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gold/10 rounded-full blur-[80px] pointer-events-none" />
+
+      {/* Laptop frame */}
+      <div className="relative">
+        {/* Screen */}
+        <img src={laptop} alt="" />
+
+        {/* Laptop base */}
+        {/* <div className="relative mx-auto">
+          <div className="bg-gradient-to-b from-gray-200 to-gray-300 h-3 rounded-b-md mx-6" />
+          <div className="bg-gradient-to-b from-gray-300 to-gray-400 h-1.5 rounded-b-lg mx-2" />
+        </div> */}
+      </div>
+
+      {/* Floating "Time Taken" card */}
+      <div className="absolute -left-4 sm:-left-6 bottom-16 sm:bottom-24 bg-white rounded-2xl shadow-xl ring-1 ring-black/[0.05] px-5 py-4 sm:px-6 sm:py-5 z-10">
+        <div className="flex flex-col items-center text-center gap-2">
+          <svg
+            className="w-8 h-8 text-navy"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <p className="text-xs font-semibold text-slate">Time Taken To Finish</p>
+          <p className="text-lg font-black text-gold">5 Minutes</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function HowItWorksSteps() {
   return (
     <>
-      <section className="relative bg-white pt-16 pb-0 lg:pt-20 overflow-hidden">
-        <div className="absolute -top-10 right-10 w-60 h-60 bg-gray-bg rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative bg-white pt-16 pb-0 lg:pt-24 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-block bg-navy/5 text-navy text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
-              Simple 3-Step Process
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tight">How It Works</h2>
-            <p className="mt-4 text-slate-light text-lg leading-relaxed">
-              A streamlined, three-step process designed to get your trademark back on track.
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — heading + steps */}
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight">
+                Protect your trademark
+                <br />
+                in{' '}
+                <span className="bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">
+                  3 simple steps
+                </span>
+              </h2>
+              <p className="mt-4 text-slate-light text-lg leading-relaxed">
+                Secure your brand with our streamlined process.
+              </p>
 
-          {/* steps with dashed connector */}
-          <div className="relative grid lg:grid-cols-3 gap-8">
-            {/* horizontal connector */}
-            <div className="hidden lg:block absolute top-[120px] left-[17%] right-[17%] border-t-2 border-dashed border-gold/30 pointer-events-none" />
+              <div className="mt-10 space-y-8">
+                {steps.map((step) => (
+                  <div key={step.number} className="flex items-start gap-5">
+                    {/* Number circle */}
+                    <div className="shrink-0 w-10 h-10 rounded-full bg-navy/5 border-2 border-navy/15 flex items-center justify-center">
+                      <span className="text-sm font-bold text-navy">{step.number}</span>
+                    </div>
 
-            {steps.map((step) => (
-              <div key={step.number} className="relative group">
-                <div className="bg-gradient-to-br from-gray-bg to-white rounded-3xl overflow-hidden ring-1 ring-black/[0.04] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={step.image} alt={step.imageAlt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/10 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold to-gold-light text-navy font-black text-xl flex items-center justify-center shadow-lg">
-                        {step.number}
-                      </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-navy">{step.title}</h3>
+                      <p className="mt-1 text-slate-light text-sm leading-relaxed">{step.description}</p>
                     </div>
                   </div>
-                  <div className="p-7">
-                    <h3 className="text-xl font-bold text-navy mb-3">{step.title}</h3>
-                    <p className="text-slate-light text-sm leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right — laptop mockup */}
+            <div className="relative lg:pl-4">
+              <LaptopMockup />
+            </div>
           </div>
         </div>
       </section>

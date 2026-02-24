@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png"
 
-const PHONE_NUMBER = '1-800-555-0199';
+const PHONE_NUMBER = '+1 (844) 918-3636';
 const PHONE_TEL = 'tel:+18005550199';
 
 const navLinks = [

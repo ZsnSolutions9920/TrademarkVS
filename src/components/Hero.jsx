@@ -19,17 +19,17 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `radial-gradient(circle,white 1px,transparent 1px)`, backgroundSize: '28px 28px' }} />
 
         {/* ---- content ---- */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-28 lg:pt-40 lg:pb-36">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-28 lg:pt-48 lg:pb-36">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Left copy */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/10 rounded-full px-5 py-2 mb-7">
+              {/* <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/10 rounded-full px-5 py-2 mb-7">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold" />
                 </span>
                 <span className="text-white/90 text-sm font-medium tracking-wide">USPTO Trademark Specialists</span>
-              </div>
+              </div> */}
 
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-white leading-[1.1] tracking-tight">
                 Your Trademark Expired?
@@ -108,7 +108,7 @@ export default function Hero() {
               </div>
 
               {/* floating card – top right */}
-              <div className="absolute -top-5 -right-5 z-20 animate-float">
+              <div className="absolute -top-5 -right-5 z-20 ">
                 <div className="bg-white rounded-2xl shadow-xl p-4 border border-gray-border/50">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-navy/5 rounded-xl flex items-center justify-center">
@@ -125,7 +125,7 @@ export default function Hero() {
               </div>
 
               {/* floating card – bottom left */}
-              <div className="absolute -bottom-5 -left-5 z-20 animate-float-delayed">
+              <div className="absolute -bottom-5 -left-5 z-20 ">
                 <div className="bg-white rounded-2xl shadow-xl p-4 border border-gray-border/50">
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
